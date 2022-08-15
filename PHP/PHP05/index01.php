@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <?php
 //id=>[name,maths,english,urdu,islamiat,pakstudies]
 $Students =[
@@ -7,7 +8,7 @@ $Students =[
     "4"=>["AZHAN",0,0,0,88,16]
 ];
 
-echo "<table border='1'>
+echo "<table class='table'>
     <tr>
     <th>Student ID</th>
     <th>Student NAME</th>
@@ -28,11 +29,11 @@ foreach($Students as $key => $item){
     $remarks = "";
     $grade = "";
     if( $percent>=40){
-        $remarks = "Pass";
+        $remarks = "<td class='bg-success text-white text-center'>Pass</td>";
     }
     else{
 
-        $remarks = "Fail";
+        $remarks = "<td class='bg-danger text-white text-center'>Fail</td>";;
     }
 
     if($percent>=90){
@@ -77,7 +78,7 @@ foreach($Students as $key => $item){
         <td>$item[5]</td>  
         <td>$sum</td>  
         <td>$percent</td>
-        <td>$remarks</td>    
+        $remarks    
         <td>$grade</td>    
     </tr>";
   
