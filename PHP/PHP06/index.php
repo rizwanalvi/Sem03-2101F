@@ -33,6 +33,7 @@ echo "<tr>
 <td>$name</td>
 <td>$age</td>
 <td>$lstGender</td>
+<td><a href='#'>back</a></td>
 </tr>";
 
     echo "</table>";

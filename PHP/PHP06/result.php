@@ -9,6 +9,7 @@ if(isset($_GET['btnsend'])){
           <th>Student Name</th>
           <th>Student Age</th>
           <th>Gender</th>
+          <th></th>
       </tr>";
       //var_dump($_GET);
    
@@ -16,6 +17,7 @@ if(isset($_GET['btnsend'])){
   <td>$name</td>
   <td>$age</td>
   <td>$lstGender</td>
+  <td><a href='#'>Back</a></td>
   </tr>";
   
       echo "</table>";
