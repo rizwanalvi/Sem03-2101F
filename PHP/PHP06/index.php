@@ -1,6 +1,6 @@
 
 
-<form action="" method="get">
+<form action="result.php" method="get">
     <label for="txtName">Enter Your Name</label>
     <input type="text" name="txtName">
     <br/>
