@@ -2,7 +2,7 @@
 <?php
 //id=>[name,maths,english,urdu,islamiat,pakstudies]
 $Students =[
-    "1"=>["SAIM",89,79,89,90,68],
+    "1"=>["SAIM",0,0,0,0,0],
     "2"=>["AHAD",90,92,95,88,90],
     "3"=>["ARBAB",27,90,89,88,16],
     "4"=>["AZHAN",0,0,0,88,16]
