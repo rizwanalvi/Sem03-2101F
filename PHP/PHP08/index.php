@@ -5,9 +5,7 @@ if(isset($_GET['btnSave'])){
     $StudentName = $_GET['StudentName'];
     $StudentBatch = $_GET['StudentBatch'];
     $FeeStatus = $_GET['FeeStatus'];
- 
-   
-    if($conn){
+        if($conn){
         $query = "INSERT INTO STUDENT(ID,STDNAME,BATCHID,FEESTATUS) VALUES(NULL,'$StudentName','$StudentBatch',$FeeStatus)";
         mysqli_query($conn,$query);
         header("location:index.php");
