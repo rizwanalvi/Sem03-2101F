@@ -17,7 +17,7 @@ if(isset($_GET['btnsend'])){
   <td>$name</td>
   <td>$age</td>
   <td>$lstGender</td>
-  <td><a href='#'>Back</a></td>
+  <td><a href='./index.php'>Back</a></td>
   </tr>";
   
       echo "</table>";
