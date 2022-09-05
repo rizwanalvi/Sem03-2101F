@@ -10,3 +10,9 @@ if(isset($_POST['btnSave'])){
 }
 ?>
 
+<form action="" method="post">
+<input type="text" name="proName" />
+<input type="text" name="proPrice" />
+<input type="file" name="imgFile" />
+<input type="submit" value="Save" name="btnSave">
+</form>
