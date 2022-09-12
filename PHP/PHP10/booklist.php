@@ -37,6 +37,7 @@
           <td >".$row['DESCRIPTION']."</td>
           <td >".$row['PRICE']."</td>
           <td >".$row['QUANTITY']."</td>
+          <td ><img src='".$row['IMGPATH']."' ></td>
           <td >".$remarks."</td>
           <td><div class='btn-group'>
           <a href='#' class='btn btn-primary btn-sm'>Show</a>
