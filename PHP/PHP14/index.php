@@ -21,7 +21,7 @@ if(isset($_POST['btnLogin'])){
         while($row = mysqli_fetch_assoc($result)){
                     echo $row["PASSWORD"];
                     if(password_verify($txtPass,$row["PASSWORD"])){
-                        echo "<script>alert('ok');</script>";
+                       
                         $_SESSION['UserName'] = $txtName;
                         header('location:dashboard.php');
                     }
