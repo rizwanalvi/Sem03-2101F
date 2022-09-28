@@ -1,4 +1,4 @@
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <?php
 if(isset($_POST['btnSave'])){
     var_dump($_POST);
@@ -52,13 +52,29 @@ if($conn){
         </div>
         <div class="col-md-4">
         <div class="form-group">
-            <img src="./assets/img/avatar.jpg" alt="" class="img-thumbnail" name="pImg">
+            <img src="./assets/img/avatar.jpg" alt="" class="img-thumbnail" name="pImg" id="previewImg">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Upload Picture</label>
-            <input type="file" class="form-control-file" name="pImgPath">
+            <input type="file" class="form-control-file" name="pImgPath" onchange="previewFile(this);">
         </div>
         </div>
     </div>
 
 </form>
+
+<script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

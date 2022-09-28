@@ -74,15 +74,15 @@ if(!isset($_SESSION['name'])){
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="index.php?page=showprod">
               <span data-feather="file"></span>
-              Orders
+              Products
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?page=product">
               <span data-feather="shopping-cart"></span>
-              Products
+             xxxx
             </a>
           </li>
           <li class="nav-item">
@@ -157,10 +157,17 @@ if(!isset($_SESSION['name'])){
      <?php
 if(isset($_GET['page'])){
    $page =$_GET['page'];
-  include $page.'.php';
+    include $page.'.php';
 }
 else{
   include 'addproduct.php';
+
+}
+
+if(isset($_GET['id'])){
+  $id = $_GET['id'];
+  $query = "SELECT * FROM MOBILES WHERE ID =".$id;
+  $result = mysqli_query($conn,$query);
 
 }
 
