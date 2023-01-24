@@ -14,3 +14,88 @@
    4. Now, we need to generate a secret key to handle the token encryption. To do so, run this command:
       i. php artisan jwt:secret
       ii.   This will update our .env file
+   5. Configure AuthGuard - Inside the config/auth.php
+   'defaults' => [
+        'guard' => 'api',
+        'passwords' => 'users',
+    ],
+
+
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+                'driver' => 'jwt',
+                'provider' => 'users',
+        ],
+
+    ],
+
+    6.   Modify the User model
+    In order to implement the PHPOpenSourceSaverJWTAuthContractsJWTSubject contract on our User model, we’ll use two methods: getJWTCustomClaims() and getJWTIdentifier().
+      Replace the code in the app/Models/User.php file, with the following:
+      namespace App\Models;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+
+class User extends Authenticatable implements JWTSubject
+{
+    use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+     /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+}
