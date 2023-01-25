@@ -186,3 +186,28 @@ class AuthController extends Controller
     }
 
 }
+
+# Carbon
+use Carbon\Carbon;
+ $dt = Carbon::now()->format('d-m-Y');
+        $tt =Carbon::now()->toTimeString();
+        Attendance::create([
+             'emp_id'=>1,
+             'attendance_time'=>$tt,
+             'attendance_date'=> $dt,
+             'status' => 1
+         ]);
+
+   Schema::create('attendances', function (Blueprint $table) {
+            $table->Increments('id');
+            $table->integer('user_id')->unsigned();
+
+            $table->time('attendance_time')->default(date("H:i"));
+            $table->date('attendance_date');
+            $table->boolean('status')->default(1);
+
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamps();
+        });
